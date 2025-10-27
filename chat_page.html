@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>BookMate - Let's Chat!</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: linear-gradient(135deg,#a1c4fd,#c2e9fb);
+                color: #333;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+            }
+
+            header {
+                background-color: rgb(255,255,255,0.85);
+                padding: 20px;
+                text-align: center;
+                box-shadow:0 2px 8px rgba(0,0,0,0.1);
+
+            }
+
+            nav {
+                background-color: #B0E0E6;
+                text-align: center;
+                padding: 10px;
+            }
+
+            nav a {
+                color: #00008B;
+                text-decoration: none;
+                margin: 0 10px;
+                font-weight: bold;
+            }
+
+            main {
+                background-color: rgb(255,255,255,0.9);
+                padding: 20px;
+                flex-grow: 1;
+                max-width: 800px;
+                margin: 20px auto;
+                border-radius: 10px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+
+            }
+
+            h1 {
+                text-align: center;
+                color: #2471a3;
+
+            }
+
+            p{
+                text-align: center;
+            }
+
+            .chat-section {
+                border: 1px solid #ccc;
+                padding: 10px;
+                margin-bottom: 10px;
+                border-bottom: 10px;
+                border-radius: 5px;
+                background-color: #E0FFFF;
+
+            }
+
+            .chat-messages {
+
+                height: 200px;
+                overflow-y: auto;
+                border: 1px solid #ccc;
+                padding: 5px;
+                margin-bottom: 10px;
+                background-color:#ffffff;
+                border-radius: 5px;
+
+            }
+
+            .chat-message {
+
+               margin-bottom: 5px;
+            }
+
+            .chat-message.user { 
+                text-align: right;
+                 color: #007bff;
+             }
+            .chat-message.bot {
+
+               text-align: left;
+               color: #28a745;
+
+            }
+
+            .chat-input {
+               width: calc(100% - 100px);
+               padding: 5px;
+               border: 1px solid #ccc;
+               border-radius: 5px;
+               margin-right: 5px;
+            }
+            
+            button.chat-button {
+                padding: 5px 10px;
+                background-color: #007bff;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            button.chat-button:hover {
+                background-color: #007bff;
+
+            }
+
+            footer {
+                background-color: #B0E0E6;
+                padding: 10px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>BookMate: A Chatbot Companion for Book Recommendations</h1>
+        </header>
+
+        <nav>
+            <a href="{{url_for('index') }}">Home</a>
+            <a href="{{url_for('about') }}">about</a>
+            <a href="{{url_for('lets_chat' )}}" class="active">Let's Chat</a>
+            <a href="{{url_for('contact')}}">contact</a>
+        </nav>
+        <main>
+            <h1>Our Services</h1>
+            <p>Bookmate Offers reading challenges and goals to motivate user to explore new genres, authors, and literarcy classics</p>
+
+            <div class="chat-section">
+                <div class ="chat-message"></div>
+                <div class="chat-message">
+                    <p><strong>Ask Me:</strong></p>
+                    <p>I can recommed you on [Fiction,poetry,Drama,Children animation,Graphic,Adventure,Paranormal
+                        magical Realism,Philosophical,Psychological] genre BooKs...</p>
+                </div>
+                <div class="chat-message">
+                    <input type="text"class="chat-input"placeholder="type your message...">
+                    <button class="chat-button">chat</button>
+                </div>        
+                    
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 BookMate</p>
+        </footer>
+        <script src="{{ url_for('static',filename='script.js')}}"></script>
+    </body>  
+</html>      
