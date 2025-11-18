@@ -1,0 +1,74 @@
+version: "3.1"
+
+nlu:
+# -----------------
+# GREET
+# -----------------
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+
+# -----------------
+# MOOD EXPRESSION (NEW: Captures mood_type entity)
+# -----------------
+- intent: express_mood
+  examples: |
+    - I'm feeling [sad](mood_type)
+    - I am [depressed](mood_type)
+    - I'm [down](mood_type)
+    - I feel a little [blue](mood_type)
+    - I am really [miserable](mood_type)
+    - I'm feeling very [happy](mood_type)
+    - I am quite [energized](mood_type)
+    - I'm [stressed](mood_type)
+    - [sad](mood_type)
+    - I am [great](mood_type)
+    - I am [amazing](mood_type)
+    - super [stoked](mood_type)
+    - so [perfect](mood_type)
+
+# -----------------
+# MOOD PREFERENCE (NEW: Used to fill the mood_preference slot)
+# -----------------
+- intent: specify_preference
+  examples: |
+    - I want to match it
+    - match my mood
+    - something that matches my feeling
+    - I want to change it
+    - change my mood
+    - something to cheer me up
+    - I want to read a distraction
+    - change
+    - match
+
+# -----------------
+# OTHER UTTERANCES
+# -----------------
+- intent: goodbye
+  examples: |
+    - bye
+    - good bye
+    - see you later
+    
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - of course
+
+- intent: deny
+  examples: |
+    - no
+    - never
+    - I don't think so
+    
+- intent: bot_challenge
+  examples:
+    - are you a bot?
+    - are you human?
+    - am i talking to a bot ?

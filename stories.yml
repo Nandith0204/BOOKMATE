@@ -1,0 +1,24 @@
+version: "3.1"
+
+stories:
+
+- story: Full mood-based recommendation path (User is sad)
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: express_mood
+    entities:
+    - mood_type: "sad" 
+  - action: recommendation_form # Activates form, asks for preference
+  - active_loop: recommendation_form
+  - intent: specify_preference # User says "I want to change it"
+  - action: recommendation_form # Form continues processing
+  - active_loop: null          # Form is finished
+  - action: action_recommend_by_mood # Custom action gives cheer-up + book
+
+- story: Simple greeting path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: goodbye
+  - action: utter_goodbye
